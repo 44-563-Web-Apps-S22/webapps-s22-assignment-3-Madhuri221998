@@ -63,9 +63,12 @@
 
     The only drawback of this data structure is, that it can only be used on immutable arrays. This means, that the array cannot be changed between two queries. If any element in the array changes, the complete data structure has to be recomputed.</blockquote>
 <a href="https://brilliant.org/wiki/sparse-table/#:~:text=Sparse%20Table%20is%20a%20data,compared%20to%20other%20data%20structures.">Brief Description</a>
-<pre>for (int i = 0; i < N; i++)
+<pre>
+    <code>for (int i = 0; i < N; i++)
     st[i][0] = f(array[i]);
 
 for (int j = 1; j <= K; j++)
     for (int i = 0; i + (1 << j) <= N; i++)
-        st[i][j] = f(st[i][j-1], st[i + (1 << (j - 1))][j - 1]);</pre>
+        st[i][j] = f(st[i][j-1], st[i + (1 << (j - 1))][j - 1]);
+    </code>
+</pre>
